@@ -73,7 +73,7 @@ let numeroPar = Number(prompt("Informe um número par"))
 let divisao = numeroPar / 2
 let restoDaDivisao = numeroPar % divisao
 
-console.log("Seu número dividido por 2 é igual a", divisao, ",e sobra", restoDaDivisao)
+console.log("Seu número dividido por 2 é igual a", divisao, ",e sobra", restoDaDivisao) 
 //Nesse programa o resto de divisão = 0, porque todo número par dividido por 2 é uma divisão exata
 //Se o usuário inserir um número ímpar, não teremos uma divisão exata, e resultará em resto de divisão = 1
 
@@ -93,7 +93,7 @@ console.log("Você tem", idadeDias, "dias de idade")
 console.log("Você tem", idadeHoras, "horas de idade")
 
 /*
-Faça um programa que pergunte ao usuário dois números. 
+4. Faça um programa que pergunte ao usuário dois números. 
 Em seguida, faça as operações e imprima no console as seguintes mensagens seguidas pelo true ou false:
 O primeiro número é maior que segundo? true
 O primeiro número é igual ao segundo? false
