@@ -1,0 +1,102 @@
+header {
+    text-align: center;
+}
+
+.links {
+    margin: 30px;
+}
+
+.principal {
+    background-color: #A8BAC5    ;
+    padding: 5px 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.titulo-principal {
+    padding-left: 20px;
+    color: #45525b;
+}
+
+.titulo-centralizado {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+#missao {
+    font-size: 20px;
+}
+
+i strong {
+    color: red
+    ;
+}
+
+.redes-sociais {
+    text-align: center;
+}
+
+h2 {
+    color: #45525b;
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+li {
+    font-size: 20px;
+    color: #45525b;
+}
+
+th {
+    text-align: center;
+    color: blue;
+    font-size: 15px;
+    border: 1px solid black;
+}
+
+td {
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid black;    
+}
+
+ul {
+    font-size: 20px;        
+}
+
+label {
+    font-size: 20px;    
+}
+
+input {
+    font-size: 16px;
+}
+
+button {
+    display: block;
+    width: 150px;
+    padding: 15px;
+    font-size: 15px;
+    margin-top: 30px;
+    background-color: #45525b;
+    color: white;   
+}
+
+footer {
+    text-align: center;
+    background-color: black;
+    padding: 5px;
+    margin-top: 20px;
+}
+
+.copyright {
+    color: white;
+    font-size: 13px;
+    margin: 20px 0 0;
+}
