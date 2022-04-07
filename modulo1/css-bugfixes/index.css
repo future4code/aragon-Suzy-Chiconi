@@ -55,7 +55,7 @@ div img {
 
 .container {
     height: 500px;
-    text-align: center;
+    text-align: center;    
 }
 
 .icone {
@@ -72,6 +72,7 @@ div img {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
+    padding-top: 230px;
 }
 
 #container-de-descricao>ol {
