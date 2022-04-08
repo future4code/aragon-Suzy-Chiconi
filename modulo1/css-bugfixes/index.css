@@ -19,6 +19,7 @@ h2 {
 input {
     height: 20px;
     width: 500px;
+    border: 0 0 7px 0;
 }
 
 button:focus {
@@ -30,11 +31,11 @@ img {
 }
 
 div>p:first-child {
-    display: inline;
+    display: block;
 }
 
 div img {
-    background: black;
+    background: white;
 }
 
 .botao-amarelo {
@@ -45,8 +46,7 @@ div img {
     font-size: 20px;
     color: white;
     display: block;
-    margin-top: 180px;
-    margin-left: 40%;
+    margin: auto;
 }
 
 .botao-amarelo:hover {
@@ -104,6 +104,22 @@ div:last-child {
 
 table {
     width: 60%;
+    display: block;
+    text-align: center;
+    margin: 40px 80px;
+    padding: 30px 10px;
+}
+
+.table td tr {
+    display: block;
+    margin: auto;
+    text-align: center;
+    padding: 100px 0;
+}
+
+td table {
+    padding: 80px;
+    margin: 20px 50px;
 }
 
 td button {
@@ -127,6 +143,9 @@ td button:active {
     height: 100px;
 }
 
+.container-do-search input {
+    border: 0 0 7px 0;
+}
 
 #back-button {
     background-color: white;
@@ -136,12 +155,11 @@ td button:active {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    display: block;
+    margin: auto;
+    margin-top: 150px;
 }
 
 #back-button:hover {
     background-color: #635a3d
-}
-
-tr {
-    text-align: center;
 }
