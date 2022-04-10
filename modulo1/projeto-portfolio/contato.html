@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Suzy Chiconi</title>
     
-    <link rel="stylesheet" href="index_arquivos/reset.css">
-    <link rel="stylesheet" href="index_arquivos/style.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div>
             <h1>Contato e Redes Sociais</h1>
-                <div class="menu">
-                    <a id="link" href="index.html">Início</a>
+                <div class="links">
+                    <a href="index.html">Início</a>
                     <a href="experiencia.html">Cursos e Experiência</a>
                     <a href="projetos.html">Projetos Desenvolvidos</a>
                     <a href="contato.html">Contato e Redes Sociais</a>
@@ -24,12 +24,36 @@
         </div>
     </header>
 
-    <div class="redes-sociais">
-        <p class="redes-sociais"><img src="github.png"></p>
-        <p class="redes-sociais"><img src="linkedin.png"></p>    
-    </div>
+    <main>
+        <h2>Entre em contato:</h2>
+        <form action="Contato">
+            <div class="contato">
+                <label for="nome">Nome</label>
+                <input type="text">
 
+                <label for="e-mail">e-mail</label>
+                <input type="text">
 
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+        <section>
+            <ul class="redes-sociais">
+                <h3 class="redes-sociais-nome">Siga minhas redes sociais:</h3>
+                 <li>
+                    <a href="https://github.com/SuzyChiconi">		
+                    <img src="GitHub_logo.jpg">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.linkedin.com/in/suzychiconi">
+                    <img src="Linkedin_logo.jpg">
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
 </body>
 
 <footer>

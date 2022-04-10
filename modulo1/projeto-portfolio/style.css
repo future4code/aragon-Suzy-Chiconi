@@ -95,9 +95,40 @@ header {
     text-align: justify;
 }
 
+.contato {
+	margin: auto;
+	padding: 20px;
+}
+
+.contato input {
+	padding: 10px 80px 0 10px;
+}
+
+.contato button {
+	display: block;
+	margin-top: 10px;
+	margin-left: 550px;
+	padding: 5px 10px;
+}
 .redes-sociais {
-    display: block;
+    display: inline;
     margin: auto;
+	padding: 90px;
+}
+
+.redes-sociais-nome {
+	margin-bottom: 10px;
+}
+.redes-sociais img {
+	width: 80px;
+	display: inline-block;
+	margin-left: 10px;
+	padding: 10px;
+	border: 1px solid black;
+}
+
+.redes-sociais > img {
+	display: inline;
 }
 
 footer {
@@ -106,8 +137,7 @@ footer {
     margin: 0;
     padding: 40px 0;
 	text-align: center;
-    color: white;
-	
+    color: white;	
 }
 
 .copyright {
