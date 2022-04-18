@@ -1,0 +1,147 @@
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+header {
+	background: #efe2ec;
+	padding: 20px 0;
+}
+
+.caixa {
+	position: relative;
+	width: 940px;
+	margin: 0 auto;
+}
+
+.apresenta{
+	margin: -26px 0 0 259px;
+	font-size: 25px;
+	position: absolute;
+	top: 110px;
+	right: 0;
+}
+
+.principal {
+	padding: 8px 0;
+	background: #FEFEFE;
+	width: 940px;
+	margin: 0 auto;
+}
+
+.titulo-principal {
+	text-align: center;
+	font-size: 2em;
+	margin: 0 0 1em;
+	clear: left;
+}
+
+.cursos{
+	margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 50px;
+}
+
+.obj {
+	margin: 39px 0 25px 0;
+	font-size: 24px;
+}
+
+.itens {
+	line-height: 1.5;
+    font-size: 20px;
+}
+
+.projetos{
+	width: 940px;
+	margin: 0 auto;
+	padding: 50px 0;
+}
+
+.projetos li {
+	display: inline-block;
+	text-align: center;
+	width: 30%;
+	vertical-align: top;
+	margin: 0 1.5%;
+	padding: 30px 20px;
+	box-sizing: border-box;
+	border: 2px solid #000000;
+	border-radius: 10px;
+}
+
+.proj-nome {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.proj-descricao{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.projetos img {
+	width: 40%;
+}
+
+.projetos li:hover {
+	border-color: #efe2ec;
+}
+
+.projetos li:hover h2 {
+	font-size: 25px;
+}
+
+.ferramentas {
+    text-align: justify;
+}
+
+.contato {
+	margin: auto;
+	padding: 20px;
+}
+
+.contato input {
+	padding: 10px 80px 0 10px;
+}
+
+.contato button {
+	display: block;
+	margin-top: 10px;
+	margin-left: 550px;
+	padding: 5px 10px;
+}
+.redes-sociais {
+    display: inline;
+    margin: auto;
+	padding: 90px;
+}
+
+.redes-sociais-nome {
+	margin-bottom: 10px;
+}
+.redes-sociais img {
+	width: 80px;
+	display: inline-block;
+	margin-left: 10px;
+	padding: 10px;
+	border: 1px solid black;
+}
+
+.redes-sociais > img {
+	display: inline;
+}
+
+footer {
+    background-color: black;
+    display: block;
+    margin: 0;
+    padding: 40px 0;
+	text-align: center;
+    color: white;	
+}
+
+.copyright {
+	color: #FFFFFF;
+	font-size: 18px;
+	margin: 20px 0 0;
+}
