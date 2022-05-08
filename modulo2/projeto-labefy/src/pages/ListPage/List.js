@@ -99,7 +99,7 @@ class List extends React.Component {
                     <DeleteButton
                       onClick={() => this.handlePlaylistDeletion(List.id)}
                     >
-                      X
+                      Deletar &#10060;
                     </DeleteButton>
                   </li>
                 );
