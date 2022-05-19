@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from './components/Header';
 import ProfilesPage from './components/Pages/ProfilesPage'
 import MatchesPage from './components/Pages/MatchesPage'
+import './styles.css'
 
 function App() {
 
