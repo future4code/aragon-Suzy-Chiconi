@@ -18,7 +18,6 @@ function ProfilesPage() {
             .get(url)
             .then((response) => {
                 setProfile(response.data.profile)
-                console.log(response.data)
             })
             .catch((error) => {
                 alert("Tente novamente mais tarde")
@@ -36,7 +35,10 @@ function ProfilesPage() {
 
         axios
         .post(url, body)
-        .then(() => {
+        .then((response) => {
+            if (body.choice && response.data.isMatch){
+                alert("Deu match!")
+            }
             getProfile()
         })
         .catch((error) => {
@@ -51,13 +53,14 @@ function ProfilesPage() {
         .put(url)
         .then(() => {
             alert("Perfis resetados com sucesso!")
+            getProfile()
         })
         .catch((error) => {
             console.log(error.message)
         })
     }
 
-    const profileCard = profile && (
+    const profileCard = profile ? (
         <section>
             <img
                 src={profile.photo}
@@ -65,21 +68,24 @@ function ProfilesPage() {
                 height={"240px"}
             >
             </img>
-            <p>{profile.name}, {profile.age}</p>
+            <h3>{profile.name}, {profile.age}</h3>
             <p>{profile.bio}</p>
 
             <button onClick={() => chooseProfile(profile.id, false)}>Dislike</button>           
             <button onClick={() => chooseProfile(profile.id, true)}>Like</button>
         </section>
+    ) : (
+        <div>
+        <h3>Acabaram os matches! Clique em 'Resetar Perfis" para reiniciar</h3>
+        <button onClick={ () => resetProfiles() }>Resetar Perfis</button>
+        </div>
     )
 
     return (
         <div>
             <h2>Perfis</h2>
             {profileCard}
-            <br />
-            <button onClick={ () => resetProfiles() }>Resetar Perfis</button>
-        </div>
+         </div>
     )
 }
 

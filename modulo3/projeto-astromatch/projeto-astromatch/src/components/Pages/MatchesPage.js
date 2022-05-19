@@ -17,7 +17,6 @@ function MatchesPage () {
         .get(url)
         .then((response) => {
             setMatches(response.data.matches)
-            console.log(response)
         })
         .catch((error) => {
             console.log(error.message)
@@ -30,20 +29,20 @@ function MatchesPage () {
                 <img
                 src={match.photo}
                 alt={`foto de ${match.name}`}
-                height={"60vh"}
+                height={"70vh"}
                 >
                 </img>
-                <div>{match.name}</div>
+                <div className="name">{match.name}</div>
                 <hr />
             </figure>
         )
     })
- 
+
     return (
-        <div>
+        <section>
             <h2>Matches</h2>
             {allMatches}
-        </div>
+        </section>
     )
 }
 
