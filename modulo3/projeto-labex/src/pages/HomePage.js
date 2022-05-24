@@ -1,13 +1,20 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
+import { goToAdminPage } from '../routes/coordinator';
 
-
-// Função que renderiza a página inicial.
 function HomePage() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      goToAdminPage(navigate);
+    };
+  }, []);
+
   return (
     <>
-      <Header
-        actualPage={"home-page"}
-      />
+      <Header />
       <hr />
       <main>
         <section>
@@ -15,7 +22,7 @@ function HomePage() {
         </section>
         <hr />
         <section>
-          <h2>Lista de viagens</h2>
+          <h2>Lista de Viagens</h2>
         </section>
       </main>
     </>
