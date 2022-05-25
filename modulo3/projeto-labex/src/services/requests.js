@@ -9,13 +9,30 @@ export const requestLogin = (email, password, navigate) => {
     }
 
     axios.post(`${BASE_URL}/${API_CLIENT}/login`, body)
-        .then((res) => {
-            localStorage.setItem("token", res.data.token);
+        .then((response) => {
+            localStorage.setItem("token", response.data.token);
             alert("Login realizado com sucesso!");
             goToAdminPage(navigate);
         })
+        .catch((error) => {
+            alert("Ocorreu um erro! Tente novamente");
+            console.log(error.message);
+        });
+};
+
+export const deleteTrip = (tripId, getTripsData) => {
+    const header = {
+        headers: {
+            auth: localStorage.getItem("token")
+        }
+    };
+
+    axios.delete(`${BASE_URL}/${API_CLIENT}/trips/${tripId}`, header)
+        .then(() => {
+            alert("Viagem removida com sucesso!");
+            getTripsData();
+        })
         .catch((err) => {
-            alert("Um erro ocorreu! Tente novamente");
-            console.log(err.message);
+            alert(err.message);
         });
 };
