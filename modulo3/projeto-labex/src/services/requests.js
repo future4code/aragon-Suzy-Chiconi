@@ -15,8 +15,26 @@ export const requestLogin = (email, password, navigate) => {
             goToAdminPage(navigate);
         })
         .catch((error) => {
-            alert("Ocorreu um erro! Tente novamente");
+            alert("Erro ao efetuar o login! Tente novamente");
             console.log(error.message);
+        });
+};
+
+export const createTrip = (body, clear, getTripsData) => {
+    const header = {
+        headers: {
+            auth: localStorage.getItem("token")
+        }
+    };
+
+    axios.post(`${BASE_URL}/${API_CLIENT}/trips`, body, header)
+        .then(() => {
+            alert("Viagem criada com sucesso!");
+            clear();
+            getTripsData();
+        })
+        .catch((err) => {
+            alert(err.message);
         });
 };
 
