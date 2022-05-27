@@ -57,9 +57,6 @@ function AdminPage() {
                             name={"name"}
                             value={form.name}
                             onChange={onChange}
-                            pattern={"^.{5,}$"}
-                            title={"O nome da viagem deve ter no mínimo 5 caracteres"}
-                            required
                         />
                         <label htmlFor={"planet"}> Planeta: </label>
                         <select
@@ -67,7 +64,6 @@ function AdminPage() {
                             name={"planet"}
                             defaultValue={""}
                             onChange={onChange}
-                            required
                         >
                             <option value={""} disabled>Escolha um Planeta...</option>
 
@@ -82,8 +78,6 @@ function AdminPage() {
                             name={"date"}
                             value={form.date}
                             onChange={onChange}
-                            min={actualDate()}
-                            required
                         />
                         <label htmlFor={"description"}> Descrição: </label>
                         <input
@@ -91,9 +85,6 @@ function AdminPage() {
                             name={"description"}
                             value={form.description}
                             onChange={onChange}
-                            pattern={"^.{20,}$"}
-                            title={"O nome deve ter no mínimo 20 caracteres"}
-                            required 
                         />
                         <label htmlFor={"duration"}> Duração &#40;em dias&#41;: </label>
                         <input
@@ -102,8 +93,6 @@ function AdminPage() {
                             name={"durationInDays"}
                             value={form.durationInDays}
                             onChange={onChange}
-                            min={30}
-                            required
                         />
                         <button type={"submit"}>Criar</button>
                     </form>
