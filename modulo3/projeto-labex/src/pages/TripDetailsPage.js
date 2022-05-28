@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import useRequestData from '../hooks/useRequestData';
 import { goToAdminPage, goToHomePage } from "../routes/coordinator";
 import { decideCandidate } from '../services/requests';
+import styled from "styled-components";
 
 function TripDetailsPage() {
     const navigate = useNavigate();

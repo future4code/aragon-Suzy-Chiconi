@@ -8,6 +8,7 @@ import { goToHomePage } from '../routes/coordinator';
 import { createTrip, deleteTrip } from '../services/requests';
 import actualDate from '../utils/actualDate';
 import { planets } from '../constants/planets';
+import styled from "styled-components";
 
 function AdminPage() {
     const navigate = useNavigate();

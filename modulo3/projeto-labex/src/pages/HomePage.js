@@ -7,6 +7,7 @@ import TripCard from '../components/TripCard';
 import { goToAdminPage } from '../routes/coordinator';
 import { sendApplication } from '../services/requests';
 import { countries } from '../constants/countries';
+import styled from "styled-components";
 
 function HomePage() {
   const [tripId, setTripId] = useState("");
