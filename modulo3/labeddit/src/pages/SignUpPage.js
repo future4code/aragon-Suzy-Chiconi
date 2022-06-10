@@ -5,51 +5,18 @@ import useForm from '../hooks/useForm';
 import { requestSignUp } from '../services/requests';
 import { goToLoginPage } from "../routes/coordinator";
 
-// Função que renderiza página de cadastro de novo usuário.
 function SignUpPage() {
-    // Custom Hook que verifica se esta tela é protegida. Caso não seja, força exibição de FeedPage.
-    useUnprotectedPage();
+    useUnprotectedPage();    const navigate = useNavigate();
 
-    // variável navigate -> Armazena a chamada do Hook useNavigate do react-router-dom
-    const navigate = useNavigate();
-
-    /* Início de comentário multi-linha
-
-        Ponto de acesso ao Custom Hook useForm sob a forma de desestruturação do
-        retorno desta função.
-
-        Observação: useForm é acessado através de suas propriedades diretas: a variável
-        form e as funções onChange e clear.
-        Exemplo de acesso:
-        const {form, onChange, clear} = useForm(...)
-
-        Observação2: Na desestruturação de objetos, não importa a posição de cada
-        variável atribuída, mas sim os nomes exatos delas.
-    
-    Fim de comentário multi-linha */
     const { form, onChange, clear } = useForm({ name: "", email: "", password: "" });
 
-    // Função que inicia o SignUp.
     const signup = (event) => {
         event.preventDefault();
-
-        /* Início de comentário multi-linha
-
-            Função que faz a requisição efetiva de SignUp. Recebe como parâmetros a 
-            variável form, além das funções clear e navigate.
-       
-        Fim de comentário multi-linha */
         requestSignUp(form, clear, navigate);
     };
 
     return (
         <main>
-            {/* Início de comentário multi-linha
-            
-                Renderiza componente Header.js, passando a props isProtected, que 
-                identifica se a página é protegida (true) ou não (false). 
-                
-            Fim de comentário multi-linha */}
             <Header
                 isProtected={false}
             />
@@ -92,7 +59,6 @@ function SignUpPage() {
                     <br />
                     <button type={"submit"}>Cadastrar usuário</button>
                 </form>
-                {/* Botão de retorno a LoginPage. */}
                 <button onClick={() => goToLoginPage(navigate)}>Voltar</button>
             </section>
         </main>

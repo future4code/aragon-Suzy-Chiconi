@@ -79,7 +79,7 @@ function PostCard(props) {
     );
 
     return (
-        <article>
+        <article className='posts'>
             <h3>{title}</h3>
             <span><b>Autor: </b>{userId}</span>
             <p>Criado em {date}</p>
