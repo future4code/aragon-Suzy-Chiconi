@@ -55,7 +55,7 @@ function PostDetailsPage() {
             />
             <hr />
             <button onClick={() => navigate(-1)}>Voltar</button>
-            <section>
+            <section className='cards'>
                 <h2>Informações do Post</h2>
                 <PostCard
                     key={post.id}
@@ -78,7 +78,7 @@ function PostDetailsPage() {
                         required
                     />
                     <br />
-                    <button type={"submit"}>Criar Post</button>
+                    <button type={"submit"}>Comentar</button>
                 </form>
             </section>
             <hr />
