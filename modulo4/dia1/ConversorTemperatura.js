@@ -6,6 +6,7 @@ const converteCelsius = (temperatura, escala) => {
         const temperaturaKelvin = (temperatura + 273.15)
         return `${temperatura}º Celsius é equivalente a ${temperaturaKelvin}º Kelvin.`
     }else{
+
         return `Erro - Parâmetro inválido (${escala}).`
     }
 }
