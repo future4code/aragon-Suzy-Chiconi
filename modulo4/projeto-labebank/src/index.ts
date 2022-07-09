@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express"
 import cors from "cors"
-import { Statement, User, users } from "./data"
+import { User, users } from "./data"
 
 const app = express()
 
@@ -40,18 +40,13 @@ app.post("/users", (req: Request, res: Response) => {
 
         const cpfIndex: number = users.findIndex(user => user.cpf === cpf)
 
-        const timeElapsed = Date.now()
-        const today: any = new Date(timeElapsed)
-        const actualDate: any = today.toLocaleDateString()
-        const actualDateSplitted: any = actualDate.split("/")
-        const actualYear: number = actualDateSplitted[2]
+        const date: Date = new Date()
+        const actualYear: number = date.getFullYear()
 
         const birthSplitted: any = birthDate.split("/")
         const birthYear: number = birthSplitted[2]
 
         const checkAge: number = actualYear - birthYear
-
-        console.log(`Fulano tem ${checkAge} anos.`)
 
         if (cpfIndex < 0) {
 
@@ -94,7 +89,7 @@ app.post("/users", (req: Request, res: Response) => {
 
 //Endpoint 2 - Get balance
 app.get("/users/:id", (req: Request, res: Response) => {
-    let errorCode = 400
+    let errorCode: number = 400
 
     try {
         const id = Number(req.params.id)
@@ -106,9 +101,9 @@ app.get("/users/:id", (req: Request, res: Response) => {
             throw new Error("Error: Id doesn't exist")
         }
 
-        const result: any = users.filter(user => user.id === id)
+        const result: User[] = users.filter(user => user.id === id)
 
-        const balance: any = result.map((item: any) => {
+        const balance: User[] = result.map((item: any) => {
             return item.balance
         })
 
@@ -121,14 +116,13 @@ app.get("/users/:id", (req: Request, res: Response) => {
 
 //Endpoint 3 - Add balance
 app.put("/users/:id", (req: Request, res: Response) => {
-    let errorCode = 400
+    let errorCode: number = 400
 
     try {
         const id = Number(req.params.id)
-
-        const indexId: number = users.findIndex(user => user.id === id)
-
         const { balance } = req.body
+
+        const indexId: number = users.findIndex((user) => user.id === id)
 
         if (indexId < 0) {
             errorCode = 409
@@ -137,18 +131,18 @@ app.put("/users/:id", (req: Request, res: Response) => {
 
         if (typeof balance !== "number" || balance <= 0) {
             errorCode = 422
-            throw new Error("Error: Balance type must be a balance amount be greater than zero")
+            throw new Error("Error: Balance type must be a number and balance amount must be greater than zero.")
         }
 
-        const result: any = users.filter(user => user.id === id)
+        const result: User[] = users.filter((user) => {
+            if (user.id === id) {
+                user.balance = user.balance + balance
 
-        const newBalance: number = result.map((item: any) => {
-            return item.balance + balance
-        })
-
-        res.status(200).send({
-            message: "Update balance",
-            users: newBalance
+                res.status(200).send({
+                    message: "Update balance.",
+                    users: user
+                })
+            }
         })
 
     } catch (error) {
@@ -156,14 +150,20 @@ app.put("/users/:id", (req: Request, res: Response) => {
     }
 })
 
-//Endpoint - Pay bill
-
+//Endpoint 4 - Pay bill
 app.put("/users/:id/pay", (req: Request, res: Response) => {
     let errorCode = 400
     try {
+        const id = Number(req.params.id)
 
-        const id = Number(req.params.id);
         const { billValue, descriptionBillToPay } = req.body
+
+        const indexId: number = users.findIndex((user) => user.id === id)
+
+        if (indexId < 0) {
+            errorCode = 409
+            throw new Error("Error: Id doesn't exist")
+        }
 
         if (!billValue || !descriptionBillToPay) {
             errorCode = 422
@@ -180,9 +180,30 @@ app.put("/users/:id/pay", (req: Request, res: Response) => {
             throw new Error("Error: Bill value must be a number greater than zero and description bill to pay must be longer than 6 caracters.")
         }
 
-        const balanceUser = users.map(user => user.balance)
-        console.log(balanceUser)
+        const date: Date = new Date
+        const actualDate: any = date.toLocaleDateString()
 
+        const newStatement: any = {
+            billValue: billValue,
+            descriptionBillToPay: descriptionBillToPay,
+            billPaymentDate: actualDate
+        }
+
+        const checkPay: User[] = users.filter((user) => {
+            if (user.id === id) {
+                if (user.balance > billValue) {
+                    user.balance = user.balance - billValue;
+                    user.statement.push(newStatement);
+                    res.status(200).send({
+                        message: "Successfully paid",
+                        users: user,
+                    })
+                    return checkPay
+                }
+                errorCode = 422;
+                throw new Error("Error: The account amount cannot be greater than the balance amount.")
+            }
+        })
     } catch (error) {
         res.status(errorCode).send({ message: error.message })
     }

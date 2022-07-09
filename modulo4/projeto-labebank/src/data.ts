@@ -25,7 +25,7 @@ export let users: User[] = [
         statement: [{
             billValue: 150,
             descriptionBillToPay: "internet",
-            billPaymentDate: ""
+            billPaymentDate: "10/06/2022"
         }]
     },
     {
@@ -37,7 +37,7 @@ export let users: User[] = [
         statement: [{
             billValue: 200,
             descriptionBillToPay: "telephone",
-            billPaymentDate: ""
+            billPaymentDate: "08/06/2022"
         }]
     },
     {
@@ -49,7 +49,7 @@ export let users: User[] = [
         statement: [{
             billValue: 250,
             descriptionBillToPay: "health care",
-            billPaymentDate: ""
+            billPaymentDate: "12/06/2022"
         }]
     },
     {
@@ -61,7 +61,7 @@ export let users: User[] = [
         statement: [{
             billValue: 300,
             descriptionBillToPay: "lighting",
-            billPaymentDate: ""
+            billPaymentDate: "10/06/2022"
         }]
     },
     {
@@ -73,7 +73,7 @@ export let users: User[] = [
         statement: [{
             billValue: 350,
             descriptionBillToPay: "signature streaming",
-            billPaymentDate: ""
+            billPaymentDate: "10/06/2022"
         }]
     },
 ]
