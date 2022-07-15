@@ -44,10 +44,3 @@ export const userList = async (req: Request, res: Response) => {
         res.status(errorCode).send({ message: error.message })
     }
 }
-
-/*
-app.get("/users", (req:express.Request, res:express.Response) => {
- const {name} = req.query // ou req.query.name
- ...
-})
-*/

@@ -1,6 +1,6 @@
 /*
 ## Endpoint 3) Pegar Usuários Responsáveis por uma Tarefa
-Este endpoint retorna uma lista de usuários (apenas id e apelido) responsáveis por uma 
+Este endpoint retorna o usuário (apenas id e apelido) responsável por uma 
 determinada tarefa. Esta relação é estabelecida pela tabela “Responsibles” do template.
 
 Método: GET
@@ -36,7 +36,7 @@ export const userResponsible = async (req: Request, res: Response) => {
         const idFound = idTask[0]
 
         if (!idFound) {
-            errorCode = 422
+            errorCode = 404
             throw new Error("Erro: Tarefa não encontrada.");
         }
 

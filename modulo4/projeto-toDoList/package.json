@@ -1,14 +1,14 @@
 {
   "name": "template-todolist",
   "version": "1.0.0",
-  "description": "",
+  "description": "Sistema de registro de tarefas e usuários",
   "main": "index.js",
   "scripts": {
     "start": "tsc && node ./build/index.js",
     "migrations": "tsc && node ./build/database/migrations.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Suzy Chiconi",
   "license": "ISC",
   "devDependencies": {
     "@types/cors": "^2.8.12",

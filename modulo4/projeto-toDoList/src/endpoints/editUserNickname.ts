@@ -51,7 +51,7 @@ export const editUserNickname = async (req: Request, res: Response) => {
         const idUserFound = checkUser[0]
 
         if (!idUserFound) {
-            errorCode = 422
+            errorCode = 404
             throw new Error("Erro: Usuário não encontrado.");
         }
 

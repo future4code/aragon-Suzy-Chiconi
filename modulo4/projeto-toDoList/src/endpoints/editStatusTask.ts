@@ -47,7 +47,7 @@ export const editStatusTask = async (req: Request, res: Response) => {
         const idTaskFound = checkTask[0]
 
         if (!idTaskFound) {
-            errorCode = 422
+            errorCode = 404
             throw new Error("Erro: Tarefa não encontrada.");
         }
 

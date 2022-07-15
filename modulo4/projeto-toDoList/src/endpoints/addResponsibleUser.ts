@@ -39,7 +39,7 @@ export const addResponsibleUser = async (req: Request, res: Response) => {
         const idTaskFound = verificationTask[0]
 
         if (!idTaskFound) {
-            errorCode = 422
+            errorCode = 404
             throw new Error("Erro: Tarefa não encontrada.");
         }
 
@@ -50,7 +50,7 @@ export const addResponsibleUser = async (req: Request, res: Response) => {
         const idUserFound = checkUser[0]
 
         if (!idUserFound) {
-            errorCode = 422
+            errorCode = 404
             throw new Error("Erro: Usuário não encontrado.");
         }
 
@@ -75,7 +75,7 @@ export const addResponsibleUser = async (req: Request, res: Response) => {
             VALUES ("${newTask.userId}", "${newTask.taskId}");
             `)
 
-            res.status(201).send({ mensagem: "Atribuição de responsabilidade do usuário pela tarefa registrado com sucesso!"})
+            res.status(201).send({ mensagem: "Tarefa atribuída ao usuário com sucesso!"})
         }
 
     } catch (error) {

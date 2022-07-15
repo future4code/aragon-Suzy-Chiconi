@@ -1,6 +1,6 @@
 /*
 ## Endpoint 7) Deletar uma tarefa
-Este endpoint permite que editemos o status de uma tarefa buscado pelo seu id.
+Este ENDPOINT permite que deletemos uma tarefa com base em seu ID.
 
 Método: DELETE
 
@@ -34,18 +34,18 @@ export const deleteTask = async (req: Request, res: Response) => {
         const idTaskFound = checkTask[0]
 
         if (!idTaskFound) {
-            errorCode = 422
+            errorCode = 404
             throw new Error("Erro: Tarefa não encontrada.");
         }
 
         await connection.raw(`
-        DELETE FROM Tasks
-        WHERE id = "${taskId}";
+        DELETE FROM Responsibles
+        WHERE taskId = "${taskId}";
         `)
 
         await connection.raw(`
-        DELETE FROM Responsibles
-        WHERE taskId = "${taskId}";
+        DELETE FROM Tasks
+        WHERE id = "${taskId}";
         `)
 
         res.status(200).send({mensagem: "Tarefa deletada com sucesso!"})
