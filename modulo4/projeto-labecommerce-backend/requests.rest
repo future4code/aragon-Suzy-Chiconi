@@ -35,7 +35,11 @@ POST http://localhost:3003/purchases
 Content-Type: application/json
 
 {
-    "user_id": "101",
+    "user_id": "103",
     "product_id": "201",
-    "quantity": 2
+    "quantity": 1
 }
+
+
+### Endpoint search user purchases
+GET http://localhost:3003/users/103/purchases

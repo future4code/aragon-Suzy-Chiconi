@@ -7,6 +7,7 @@ import { createUser } from './endpoints/createUser'
 import { searchUsers } from './endpoints/searchUsers'
 import { searchProducts } from './endpoints/searchProducts';
 import { registerPurchase } from './endpoints/registerPurchase';
+import { searchUserPurchases } from './endpoints/searchUserPurchases';
 
 dotenv.config()
 const app = express()
@@ -35,3 +36,6 @@ app.get("/products", searchProducts)
 
 // Endpoint de registro de compra
 app.post("/purchases", registerPurchase)
+
+// Endpoint de busca das compras de um usuário
+app.get("/users/:userId/purchases", searchUserPurchases)
