@@ -43,7 +43,7 @@ export class ClassroomController extends BaseDatabase {
         }
     }
 
-    public async getAtiveClasses(req: Request, res: Response) {
+    public async getActiveClass(req: Request, res: Response) {
         let errorCode = 400
         try {
             const classroomDatabase = new ClassroomDatabase()

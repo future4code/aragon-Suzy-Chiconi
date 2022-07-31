@@ -37,7 +37,7 @@ export class Students {
     }
 
     public getBirthdate() {
-        return this.birthdate
+        return this.birthdate.toLocaleString()
     }
 
     public getClassroomId() {

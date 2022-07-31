@@ -41,10 +41,12 @@ class Migrations extends BaseDatabase {
             classroom_id VARCHAR(255) DEFAULT NULL,
             FOREIGN KEY (classroom_id) REFERENCES ${ClassroomDatabase.TABLE_CLASSROOMS}(id)
         );
+
         CREATE TABLE IF NOT EXISTS ${StudentDatabase.TABLE_HOBBIES}(
             id VARCHAR(255) PRIMARY KEY,
             title VARCHAR(255) UNIQUE NOT NULL
         );
+        
         CREATE TABLE IF NOT EXISTS ${StudentDatabase.TABLE_STUDENTS_HOBBIES}(
             student_id VARCHAR(255) NOT NULL,
             hobby_id VARCHAR(255) NOT NULL,

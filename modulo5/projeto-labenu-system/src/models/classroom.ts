@@ -3,6 +3,7 @@ export interface IClassroomDB {
     name: string,
     module: string
 }
+
 export class Classroom {
 
     constructor(
@@ -10,7 +11,7 @@ export class Classroom {
         private name: string,
         private students: string[],
         private module: number
-    ) { }
+    ) {}
 
     public getId() {
         return this.id
@@ -23,6 +24,7 @@ export class Classroom {
     public getStudents() {
         return this.students
     }
+    
     public getModule() {
         return this.module
     }

@@ -19,29 +19,35 @@ const pingController = new PingController()
 const classroomController = new ClassroomController()
 const studentController = new StudentController()
 
-
+// Endpoint de teste
 app.get("/ping", pingController.ping)
 
 
+// Endpoint extra (template) Buscar todas as turmas
 app.get("/classrooms", classroomController.getAllClassrooms)
 
 // Endpoint 1) Cria turma
 app.post("/classrooms", classroomController.createClassroom)
 
 // Endpoint 2) Buscar turmas ativas
-app.get("/classrooms/actives", classroomController.getAtiveClasses)
+app.get("/classrooms/actives", classroomController.getActiveClass)
 
 // Endpoint 3) Mudar turma de módulo
 app.put("/classrooms/:classroomId", classroomController.changeModuleClassroom)
+
+
+
+// Endpoint extra (template) Buscar todos os estudantes
+app.get("/students", studentController.getAllStudents)
 
 // Endpoint 4) Criar estudante
 app.post("/students", studentController.createStudent)
 
 // Endpoint 5) Buscar estudantes a partir do seu nome
-app.get("/students", studentController.getAllStudents)
+app.get("/students", studentController.getStudentByName)
 
-// Endpoint 6) Editar estudante de turma
-app.put("/students/:id", studentController.editClassStudent)
+// Endpoint 6) Editar turma que o estudante está matriculado
+app.put("/students/:id", studentController.editStudentClass)
 
-// Endpoint 7) Exibir todas as pessoas pertencentes a uma turma
+// Endpoint 7) Exibir todas as pessoas pertencentes a uma turma, exibindo nessa lista apenas a id, name e email de cada participante
 app.get("/students/:id", studentController.getStudentsClass)
