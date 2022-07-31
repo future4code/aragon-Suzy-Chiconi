@@ -30,26 +30,34 @@ DB_NAME = nome-do-banco-de-dados
 ## Funcionalidades
 
 ### Endpoints:
-#### ping
+- #### ping
 Endpoint de teste.
-#### getAllClassrooms
+
+- #### getAllClassrooms
 Endpoint que busca por todas as turmas cadastradas no sistema.
-#### createClassroom
+
+- #### createClassroom
 Endpoint que cria uma nova turma no sistema.
-#### getActiveClass
+
+- #### getActiveClass
 Endpoint que busca todas as turmas ativas (turmas inativas estão no módulo 0).
-#### changeModuleClassroom
+
+- #### changeModuleClassroom
 Endpoint que edita o módulo de uma turma do sistema.
-#### getAllStudents
+
+- #### getAllStudents
 Endpoint que busca por todos os estudantes cadastrados no sistema.
-app.post("/students", studentController.createStudent)
-#### createStudent
+
+- #### createStudent
 Endpoint que cria o registro de um novo estudante no sistema.
-#### getStudentByName
+
+- #### getStudentByName
 Endpoint que busca um estudante pelo nome (Caso o filtro não seja enviado, retorna a lista completa de estudantes).
-#### editStudentClass
+
+- #### editStudentClass
 Endpoint que edita a turma em que o estudante está matriculado.
-#### getStudentsClass
+
+- #### getStudentsClass
 Endpoint que exibe todas as pessoas pertencentes a uma turma, exibindo nessa lista apenas a 'id', 'name' e 'email' de cada participante.
 
 ## Documentação (links)
