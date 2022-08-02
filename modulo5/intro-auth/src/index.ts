@@ -32,5 +32,5 @@ app.get("/users", userController.getAllUsers)
 // Exercício 4 - Endpoint editUser (edição de dados do próprio usuário)
 app.put("/users", userController.editUser)
 
-// Exercício 5 - Endpoint DeleteUser (deleta via id a conta de um usuário cadastrado)
+// Exercício 5 - Endpoint deleteUser (deleta via id a conta de um usuário cadastrado)
 app.delete("/users", userController.deleteUser)

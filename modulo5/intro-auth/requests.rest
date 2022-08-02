@@ -40,7 +40,7 @@ Content-Type: application/json
 }
 
 
-### Exercício 5 - Endpoint DeleteUser (deleta via id a conta de um usuário cadastrado)
+### Exercício 5 - Endpoint deleteUser (deleta via id a conta de um usuário cadastrado)
 DELETE http://localhost:3003/users
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwMjlmMTVjLWRlMGUtNGNhZi1iYzIyLTZiOTkxMzEwYmM4MyIsImlhdCI6MTY1OTQwMjgwOSwiZXhwIjoxNjU5NDg5MjA5fQ.rJoN0FnkxWySI8j4k6ZkZbXRwTiC0tQ71_YiHNQWr84
 Content-Type: application/json
