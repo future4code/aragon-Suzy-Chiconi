@@ -51,22 +51,25 @@ export class RecipeDatabase extends BaseDatabase {
             .where({ id })
     }
 
-    public getAllRecipes = async () => {
-        const recipesDB: IRecipeDB[] = await BaseDatabase
-            .connection(RecipeDatabase.TABLE_RECIPES)
-            .select()
+    public getAllRecipes = async (search: string | undefined, sort: string, order: string, limit: number, page: number, offset: number) => {
+        let recipesDB: IRecipeDB[] = []
 
-        return recipesDB
-    }
-
-    public getRecipeByTitle = async (search: string, limit: number, page: number) => {
-        const recipesDB: IRecipeDB[] = await BaseDatabase
-            .connection(RecipeDatabase.TABLE_RECIPES)
-            .select()
-            .where("title", "LIKE", `${search}`)
-            .orderBy("updated_at" ,"asc")
-            .limit(limit)
-            .offset(limit * (page - 1))
+        if (search) {
+            recipesDB = await BaseDatabase
+                .connection(RecipeDatabase.TABLE_RECIPES)
+                .select()
+                .where("title", "LIKE", `%${search}%`)
+                .orderBy(`${sort}`, `${order}`)
+                .limit(limit)
+                .offset(offset)
+        } else {
+            recipesDB = await BaseDatabase
+                .connection(RecipeDatabase.TABLE_RECIPES)
+                .select()
+                .orderBy(`${sort}`, `${order}`)
+                .limit(limit)
+                .offset(offset)
+        }
 
         return recipesDB
     }

@@ -195,123 +195,51 @@ export class RecipeController {
         }
     }
 
-//     public getAllRecipes = async (req: Request, res: Response) => {
-//         let errorCode = 400
-//         try {
-//             const token = req.headers.authorization
-//             const search = req.query.q as string
-//             const limit = Number(req.query.limit) || 5
-//             const page = Number(req.query.page) || 1
+    public getAllRecipes = async (req: Request, res: Response) => {
+        let errorCode = 400
+        try {
+            const token = req.headers.authorization
+            const search = req.query.search as string
+            const sort = req.query.sort as string || "title"
+            const order = req.query.order as string || "asc"
+            const limit = Number(req.query.limit) || 5
+            const page = Number(req.query.page) || 1
+            const offset = limit * (page - 1)
 
-//             if (!token) {
-//                 errorCode = 401
-//                 throw new Error("Token faltando")
-//             }
-
-//             const authenticator = new Authenticator()
-//             const payload = authenticator.getTokenPayload(token)
-
-//             if (!payload) {
-//                 errorCode = 401
-//                 throw new Error("Token inválido")
-//             }
-
-//             if (search) {
-//                 const recipeDatabase = new RecipeDatabase()
-//                 const recipesDB = await recipeDatabase.getRecipeByTitle(search, limit, page)
-
-//                 const recipes = recipesDB.map((recipeDB) => {
-//                     return new Recipe(
-//                         recipeDB.id,
-//                         recipeDB.title,
-//                         recipeDB.description,
-//                         recipeDB.created_at,
-//                         recipeDB.updated_at,
-//                         recipeDB.creator_id
-//                     )
-//                 })
-
-//                 res.status(200).send({ recipes })
-//             }
-
-//             const recipeDatabase = new RecipeDatabase()
-//             const recipesDB = await recipeDatabase.getAllRecipes()
-
-//             const recipes = recipesDB.map((recipeDB) => {
-//                 return new Recipe(
-//                     recipeDB.id,
-//                     recipeDB.title,
-//                     recipeDB.description,
-//                     recipeDB.created_at,
-//                     recipeDB.updated_at,
-//                     recipeDB.creator_id
-//                 )
-//             })
-
-//             res.status(200).send({ recipes })
-//         } catch (error) {
-//             res.status(errorCode).send({ message: error.message })
-//         }
-//     }
-// }
-
-public getAllRecipes = async (req: Request, res: Response) => {
-    let errorCode = 400
-    try {
-      const token = req.headers.authorization
-      const search = req.query.search as string
-      const limit = Number(req.query.limit) || 5
-      const page = Number(req.query.page) || 1
-
-      const authenticator = new Authenticator()
-      const payload = authenticator.getTokenPayload(token)
-
-      if (search) {
-        const recipeDatabase = new RecipeDatabase()
-        const recipeDB = await recipeDatabase.getRecipeByTitle(search, limit, page)
-        res.status(200).send({ recipe: recipeDB })
-      }
-      
-      if (!payload) {
-        errorCode = 401
-        throw new Error("Token inválido.")
-      }
-
-      const recipeDatabase = new RecipeDatabase()
-      const recipesDB = await recipeDatabase.getAllRecipes()
-
-      const recipeByTitle = await recipeDatabase.getRecipeByTitle(search, limit, page)
-
-            if (search) {
-
-                const result = {
-                    id: recipeByTitle,
-                    title: recipeByTitle,
-                    description: recipeByTitle,
-                    created_at: recipeByTitle,
-                    updated_at: recipeByTitle,
-                    creator_id: recipeByTitle,
-                }
-
-                res.status(200).send({ recipes: result })
+            if (!token) {
+                errorCode = 401
+                throw new Error("Token faltando")
             }
 
-            const recipes = recipesDB.map((recipe) => {
-                const result = {
-                    id: recipe.id,
-                    title: recipe.title,
-                    description: recipe.description,
-                    created_at: recipe.created_at,
-                    updated_at: recipe.updated_at,
-                    creator_id: recipe.creator_id,                
-                }
+            const authenticator = new Authenticator()
+            const payload = authenticator.getTokenPayload(token)
 
-                return result
+            if (!payload) {
+                errorCode = 401
+                throw new Error("Token inválido")
+            }
+
+            if (typeof search !== "string") {
+                throw new Error("Parâmetro 'search' deve ser uma string")
+            }
+
+            const recipeDatabase = new RecipeDatabase()
+            const recipesDB = await recipeDatabase.getAllRecipes(search, sort, order, limit, page, offset)
+
+            const recipes = recipesDB.map((recipeDB) => {
+                return new Recipe(
+                    recipeDB.id,
+                    recipeDB.title,
+                    recipeDB.description,
+                    recipeDB.created_at,
+                    recipeDB.updated_at,
+                    recipeDB.creator_id
+                )
             })
 
             res.status(200).send({ recipes })
         } catch (error) {
             res.status(errorCode).send({ message: error.message })
         }
-    }
+    }    
 }
