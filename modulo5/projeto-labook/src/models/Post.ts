@@ -1,4 +1,5 @@
 export interface IPostDB {
+    [x: string]: string
     id: string,
     content: string,
     user_id: string
@@ -50,3 +51,36 @@ export class Post {
         this.likes = newLikes
     }
 }
+export interface IGetPostsInputDTO {
+    token: string,
+}
+export interface IGetPosts {
+    id: string,
+    content: string,
+    userId: string,
+    likes: number
+}
+export interface IGetPostsOutputDTO {
+    posts: IGetPosts[]
+}
+export interface ICreatePostDTO {
+    token: string,
+    content: string,
+}
+export interface IDeletePostInputDTO {
+    token: string,
+    id: string
+}
+export interface ILikePostInputDTO {
+    token: string,
+    id: string,
+}
+export interface IDislikePostInputDTO {
+    token: string,
+    id: string,
+}
+export interface IEditPostInputDTO {
+    token: string,
+    id: string,
+    content: string,
+} 
