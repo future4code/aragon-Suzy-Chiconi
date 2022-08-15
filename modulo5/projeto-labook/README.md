@@ -1,4 +1,4 @@
-# <img src="https://user-images.githubusercontent.com/89756948/184552819-0d6c84fc-8e25-4cd0-ad94-05dcd5d477df.png" width=30x30/>  Projeto Labbok
+# <img src="https://user-images.githubusercontent.com/89756948/184552819-0d6c84fc-8e25-4cd0-ad94-05dcd5d477df.png" width=30x30/> Projeto Labbok
 
 ### Descrição:
 O Labook é uma rede social com o objetivo de promover a conexão e interação entre seus mais diversos usuários. 
